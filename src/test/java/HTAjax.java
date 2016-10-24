@@ -1,4 +1,3 @@
-import com.sun.jna.StringArray;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -61,6 +60,9 @@ public class HTAjax {
         for (i = 0; i < 3; i++) {
             WebElement textAfterChanges = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(textAfterXPath[i])));
             Assert.assertEquals(textAfter[i], textAfterChanges.getText());
+            // These print outs for verification checking process through the loop
+            System.out.println("Expected text: " + textAfter[i]);
+            System.out.println("Actual text: " + textAfterChanges.getText());
         }
 
 

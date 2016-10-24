@@ -1,13 +1,14 @@
 
 
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.testng.annotations.*;
-import static org.testng.Assert.*;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+
+import static org.testng.Assert.*;
 
 public class Habrahabr {
   private WebDriver driver;
@@ -24,7 +25,7 @@ public class Habrahabr {
 
   @Test
   public void testHabrahabr() throws Exception {
-    driver.get(baseUrl + "/");
+    driver.get(baseUrl);
     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[2]/a[2]")).click();
     assertTrue(isElementPresent(By.cssSelector("a.facebook")));
     assertTrue(isElementPresent(By.cssSelector("a.vkontakte")));
