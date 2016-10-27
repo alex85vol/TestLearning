@@ -21,7 +21,6 @@ public class HTAjax {
     String textBeforeXPath;
     String[] textAfterXPath;
     String buttonXPath;
-
     String textBefore;
     String[] textAfter;
 
@@ -31,7 +30,9 @@ public class HTAjax {
         mainPage = "http://www.w3schools.com/xml/ajax_intro.asp";
         driver = new FirefoxDriver();
         wait = new WebDriverWait(driver, 10);
+        driver.manage().window().maximize();
         driver.navigate().to(mainPage);
+
     }
 
     @Test
@@ -49,7 +50,9 @@ public class HTAjax {
     public void verifyTextChanges() {
         int i;
         textBefore = "Let AJAX change this text";
-        textAfter = new String[]{"AJAX is not a programming language.", "AJAX is a technique for accesing web servers from a web page.", "AJAX stands for Asyncronous JavaScript And XML."};
+        textAfter = new String[]{"AJAX is not a programming language.",
+                "AJAX is a technique for accesing web servers from a web page.",
+                "AJAX stands for Asyncronous JavaScript And XML."};
         textBeforeXPath = "//div[@id='demo']/h2";
         textAfterXPath = new String[]{"//div[@id='demo']/p[1]", "//div[@id='demo']/p[2]", "//div[@id='demo']/p[3]"};
         buttonXPath = "//div[@id='demo']/button";
